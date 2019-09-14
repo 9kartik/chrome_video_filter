@@ -1,1 +1,1 @@
-document.body.style.backgroundColor='black'
+//document.getElementsByTagName('video')[0].style.filter="brightness(1) contrast(1) hue-rotate(0deg) blur(0px)"

@@ -20,36 +20,79 @@
       padding: 1px 3px;
       font-family: sans-serif;
       font-size: 0.8em;
-      width: 100px;
       margin-top: 1px;
       background: #cccccc;
-    }
-    div:hover {
-      background: #aaaaaa;
-    }
-    #red {
-      border: 1px solid red;
-      color: red;
-    }
-    #blue {
-      border: 1px solid blue;
-      color: blue;
-    }
-    #green {
-      border: 1px solid green;
-      color: green;
-    }
-    #yellow {
-      border: 1px solid yellow;
-      color: yellow;
     }
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="red">red</div>
-    <div id="blue">blue</div>
-    <div id="green">green</div>
-    <div id="yellow">yellow</div>
+    <div>
+      <span>
+        <button id="reset">Reset</button>
+      </span>
+    </div>
+    <div>
+      <input list="themes" id="selectedTheme">
+
+      <datalist id="themes">
+        <option dummy="" value="">
+      </datalist>
+      <button id="apply">Apply</button>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="brightness"> -->
+        <label for="brightness">Brightness</label>
+        <input id="slider-brightness" data-filter="brightness" data-append="" type="range" value="1" min="-1" max="4" step="0.05">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="contrast"> -->
+        <label for="contrast">Contrast</label>
+        <input id="slider-contrast" data-filter="contrast" data-append="" type="range" value="1" min="-1" max="10" step="0.05">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="hue"> -->
+        <label for="hue">Hue</label>
+        <input id="slider-hue-rotate" data-filter="hue-rotate" data-append="deg" type="range" value="0" min="0" max="360" step="0.05">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="blur"> -->
+        <label for="blur">Blur</label>
+        <input id="slider-blur" data-filter="blur" data-append="px" type="range" value="0" min="0" max="5" step="0.05">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="invert"> -->
+        <label for="invert">Invert</label>
+        <input id="slider-invert" data-filter="invert" data-append="0" type="range" value="0" min="0" max="5" step="0.1">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="grayscale"> -->
+        <label for="grayscale">Grayscale</label>
+        <input id="slider-grayscale" data-filter="grayscale" data-append="0" type="range" value="0" min="0" max="1" step="0.1">
+      </span>
+    </div>
+    <div>
+      <span>
+        <!-- <input type="checkbox" checked="checked" id="sepia"> -->
+        <label for="sepia">Sepia</label>
+        <input id="slider-sepia" data-filter="sepia" data-append="0" type="range" value="0" min="0" max="1" step="0.1">
+      </span>
+    </div>
+    <hr/>
+    <div>
+      <input type="text" id="theme" placeholder="Theme Name">
+      <button id="save" >Save</button>
+    </div>
   </body>
 </html>
