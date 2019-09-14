@@ -49,7 +49,8 @@ reset = () => {
 updateThemes = () => {
 	var c= document.querySelector('#themes').children[0];
 	Array.prototype.slice.call(document.getElementById('themes').children).map(x=>document.getElementById('themes').removeChild(x))
-	Object.keys(localStorage).map(k=>{var c1= c.cloneNode(true);c1.value=k;document.querySelector('#themes').append(c1)})
+	if(c)
+		Object.keys(localStorage).map(k=>{var c1= c.cloneNode(true);c1.value=k;document.querySelector('#themes').append(c1)})
 }
 loadTheme = () =>{
 	// console.log(document.querySelector('#themes').value,localStorage[document.querySelector('#themes').value])
