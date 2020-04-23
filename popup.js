@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 const vid_element_filter = "document.getElementsByTagName('video')[0].style.filter";
 const execScript = code => {
-    chrome.tabs.executeScript(null, { code: code });
+    chrome.tabs.executeScript(null, { code: code ,allFrames: true});
 } // runs on the page
 
 const initFilter = {
@@ -38,7 +38,7 @@ function change(e) {
      }
 }
 
-setSliders = (filter) => Object.keys(filter).map(k => document.getElementById('slider-' + k).value = filter[k])
+setSliders = (filter) => Object.keys(filter).map(k => document.getElementById('slider-' + k).value = filter[k].replace(/[a-z]/g,''))
 
 reset = () => {
     setSliders(initFilter);
@@ -53,9 +53,10 @@ updateThemes = () => {
 		Object.keys(localStorage).map(k=>{var c1= c.cloneNode(true);c1.value=k;document.querySelector('#themes').append(c1)})
 }
 loadTheme = () =>{
-	// console.log(document.querySelector('#themes').value,localStorage[document.querySelector('#themes').value])
-	setSliders(JSON.parse(localStorage[document.querySelector('#selectedTheme').value]))
-	currentfilter = JSON.parse(localStorage[document.querySelector('#selectedTheme').value]);
+    // console.log(document.querySelector('#themes').value,localStorage[document.querySelector('#themes').value])
+    var selectedValues = JSON.parse(localStorage[document.querySelector('#selectedTheme').value])
+	setSliders(selectedValues)
+	currentfilter = selectedValues;
 	var filters = document.querySelectorAll('input[data-filter]');
     [...filters].map(filter => change(filter));
 }
